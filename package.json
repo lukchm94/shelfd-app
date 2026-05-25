@@ -1,0 +1,35 @@
+{
+  "name": "shelfd",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.15.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "eslint \"{apps,packages}/**/*.{ts,tsx,js,jsx}\" --max-warnings=0 || true",
+    "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "lint:fix": "eslint \"{apps,packages}/**/*.{ts,tsx,js,jsx}\" --fix || true",
+    "test": "turbo run test",
+    "ci": "pnpm install --frozen-lockfile && pnpm -w build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "turbo": "^2.3.3",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-jsx-a11y": "^6.7.1"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@shelfd/ui",
+  "version": "0.0.1",
+  "private": true,
+  "main": "lib/index.cjs",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@shelfd/config": "workspace:*",
+    "@shelfd/types": "workspace:*",
+    "@types/node": "^25.9.1",
+    "@types/react": "19.2.15",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "tsup": "^8.5.1",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format cjs,esm --dts --out-dir lib --clean"
+  }
+}

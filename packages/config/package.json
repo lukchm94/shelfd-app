@@ -1,0 +1,6 @@
+{
+  "name": "@shelfd/config",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./index.js"
+}
