@@ -1,3 +1,11 @@
-export { default as Card } from './components/Card';
-export { default as Button } from './components/Button';
-export { default as Avatar } from './components/Avatar';
+export { Avatar, AvatarFallback, AvatarImage } from './components/Avatar';
+export { Badge, badgeVariants } from './components/Badge';
+export { Button, buttonVariants } from './components/Button';
+export {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from './components/Card';

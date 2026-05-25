@@ -16,6 +16,12 @@
     "react": "*",
     "react-dom": "*"
   },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-ui": "^1.4.3",
+    "tailwind-merge": "^3.6.0"
+  },
   "devDependencies": {
     "@shelfd/config": "workspace:*",
     "@shelfd/types": "workspace:*",

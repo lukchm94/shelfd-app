@@ -2,6 +2,34 @@
 
 Monorepo for the Shelfd social collectors app.
 
+## Getting Started
+
+This repository uses `pnpm` workspaces.
+
+Install dependencies from the repository root:
+
+```bash
+pnpm install
+```
+
+Start the frontend web app:
+
+```bash
+pnpm --filter @shelfd/web dev
+```
+
+The app should be available at:
+
+```text
+http://localhost:3000
+```
+
+To run all development scripts in the monorepo:
+
+```bash
+pnpm dev
+```
+
 ## Structure
 
 - `apps/web` - Next.js web application
