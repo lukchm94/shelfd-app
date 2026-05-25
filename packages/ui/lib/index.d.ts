@@ -21,11 +21,18 @@ declare function Button({ className, variant, size, asChild, ...props }: React.C
     asChild?: boolean;
 }): react_jsx_runtime.JSX.Element;
 
-declare function Card({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
+declare const CardPropsLayout: {
+    readonly VERTICAL: "vertical";
+    readonly HORIZONTAL: "horizontal";
+};
+
+declare function Card({ className, layout, ...props }: React.ComponentProps<'div'> & {
+    layout?: (typeof CardPropsLayout)[keyof typeof CardPropsLayout];
+}): react_jsx_runtime.JSX.Element;
 declare function CardHeader({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
 declare function CardTitle({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
 declare function CardDescription({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
 declare function CardContent({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
 declare function CardFooter({ className, ...props }: React.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
 
-export { Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, badgeVariants, buttonVariants };
+export { Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardPropsLayout, CardTitle, badgeVariants, buttonVariants };

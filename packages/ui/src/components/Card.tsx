@@ -27,7 +27,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card-header"
-      className={cn('grid auto-rows-min grid-rows-[auto_auto] gap-2 px-7 py-7', className)}
+      className={cn('grid auto-rows-min grid-rows-[auto_auto] gap-12', className)}
       {...props}
     />
   );
@@ -58,13 +58,7 @@ function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn('flex items-center px-7 py-7', className)}
-      {...props}
-    />
-  );
+  return <div data-slot="card-footer" className={cn('flex items-center', className)} {...props} />;
 }
 
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };

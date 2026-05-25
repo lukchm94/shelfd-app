@@ -13,33 +13,29 @@ export default async function CollectionPage({ params }: Props): Promise<React.J
 
   return (
     <div className="space-y-14 sm:space-y-16">
-      <Button asChild variant="ghost" className="w-fit">
-        <Link href="/">
-          <ArrowLeft data-icon="inline-start" className="h-4 w-4" />
-          Collections
-        </Link>
-      </Button>
-
-      <Card className="p-6 sm:p-8">
+      <Card className="p-10 bg-zinc-900/50 backdrop-blur-sm border-zinc-800/80">
         <CardContent className="grid gap-10 p-0 md:grid-cols-[1fr_auto] md:items-end">
           <div className="space-y-4">
-            <Badge variant="outline" className="uppercase tracking-[0.18em]">
+            <Badge
+              variant="outline"
+              className="uppercase tracking-[0.18em] py-3 px-4 text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full w-fit gap-2"
+            >
               Collection
             </Badge>
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground py-8">
               {collection.title}
             </h1>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               {collection.description}
             </p>
           </div>
-          <Badge variant="secondary" className="px-4 py-3 text-sm">
+          <Badge className="rounded-full p-4 py-8 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm font-medium tracking-wide w-fit justify-self-begin">
             {collectionItems.length} items
           </Badge>
         </CardContent>
       </Card>
 
-      <section className="grid grid-cols-1 gap-6 min-[420px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <section className="grid grid-cols-1 gap-6 min-[440px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {collectionItems.map((it) => (
           <Card key={it.id} className="overflow-hidden py-0">
             <CardContent className="px-0">
@@ -56,7 +52,10 @@ export default async function CollectionPage({ params }: Props): Promise<React.J
               </div>
             </CardHeader>
             <CardFooter className="px-6 pb-6">
-              <Badge variant="outline" className="uppercase tracking-[0.14em]">
+              <Badge
+                variant="secondary"
+                className="uppercase tracking-[0.14em] py-1 px-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium"
+              >
                 {it.metadata}
               </Badge>
             </CardFooter>

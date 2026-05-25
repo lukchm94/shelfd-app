@@ -9,3 +9,4 @@ export {
   CardHeader,
   CardTitle,
 } from './components/Card';
+export { CardPropsLayout } from './components/interface/Card';

@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }): JSX.Element {
   return (
     <html lang="en" className={cn('font-sans', geist.variable)} suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased overflow-y-auto overflow-x-hidden">
         <Script id="theme-script" strategy="beforeInteractive">
           {`
             try {
@@ -35,11 +35,21 @@ export default function RootLayout({ children }: { children: ReactNode }): JSX.E
             <Link href="/" className="text-lg font-semibold tracking-tight text-foreground">
               shelfd
             </Link>
-            <div className="flex items-center gap-2 rounded-full border border-border/70 bg-card px-2 py-1.5 shadow-sm">
-              <Button asChild variant="ghost" size="sm" className="px-3">
+            <div className="flex items-center gap-2 rounded-full  border-border/70 bg-card px-2 py-1.5 shadow-sm">
+              <Button
+                asChild
+                className="border-zinc-800 shadow-md rounded-full w-fit p-2"
+                variant="ghost"
+                size="sm"
+              >
                 <Link href="/profile/sample">Profile</Link>
               </Button>
-              <Button asChild variant="ghost" size="sm" className="px-3">
+              <Button
+                asChild
+                className="border-zinc-800 shadow-md rounded-full w-fit p-2"
+                variant="ghost"
+                size="sm"
+              >
                 <Link href="/collection/sample">Collection</Link>
               </Button>
               <ThemeToggle />

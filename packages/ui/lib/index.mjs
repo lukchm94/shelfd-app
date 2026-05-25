@@ -48,13 +48,13 @@ function AvatarFallback({
 import { cva } from "class-variance-authority";
 import { jsx as jsx2 } from "react/jsx-runtime";
 var badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-md border px-2.5 py-1 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1.5 transition-colors overflow-hidden [&>svg]:size-3.5",
+  "inline-flex items-center justify-center rounded-sm border px-2 h-5 text-[10px] font-bold tracking-wider uppercase w-fit whitespace-nowrap shrink-0 gap-1.5 transition-colors overflow-hidden [&>svg]:size-3",
   {
     variants: {
       variant: {
         default: "border-transparent bg-primary text-primary-foreground",
-        secondary: "border-transparent bg-secondary text-secondary-foreground",
-        outline: "text-foreground"
+        secondary: "border-transparent bg-secondary text-secondary-foreground bg-opacity-50 dark:bg-opacity-30 rounded-md",
+        outline: "border-zinc-800 bg-zinc-950 text-zinc-400"
       }
     },
     defaultVariants: {
@@ -123,15 +123,27 @@ function Button({
   );
 }
 
+// src/components/interface/Card.ts
+var CardPropsLayout = {
+  VERTICAL: "vertical",
+  HORIZONTAL: "horizontal"
+};
+
 // src/components/Card.tsx
 import { jsx as jsx4 } from "react/jsx-runtime";
-function Card({ className, ...props }) {
+function Card({
+  className,
+  layout = CardPropsLayout.VERTICAL,
+  ...props
+}) {
   return /* @__PURE__ */ jsx4(
     "div",
     {
       "data-slot": "card",
       className: cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border/70 py-7 px-7 shadow-sm dark:border-border/50",
+        "bg-card text-card-foreground rounded-xl border border-border/70 p-6 shadow-sm",
+        layout === CardPropsLayout.VERTICAL && "flex flex-col gap-6",
+        layout === CardPropsLayout.HORIZONTAL && "flex flex-row items-center justify-between gap-6",
         className
       ),
       ...props
@@ -143,7 +155,7 @@ function CardHeader({ className, ...props }) {
     "div",
     {
       "data-slot": "card-header",
-      className: cn("grid auto-rows-min grid-rows-[auto_auto] gap-2 px-7 py-7", className),
+      className: cn("grid auto-rows-min grid-rows-[auto_auto] gap-12", className),
       ...props
     }
   );
@@ -172,14 +184,7 @@ function CardContent({ className, ...props }) {
   return /* @__PURE__ */ jsx4("div", { "data-slot": "card-content", className: cn("px-7 py-7", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ jsx4(
-    "div",
-    {
-      "data-slot": "card-footer",
-      className: cn("flex items-center px-7 py-7", className),
-      ...props
-    }
-  );
+  return /* @__PURE__ */ jsx4("div", { "data-slot": "card-footer", className: cn("flex items-center", className), ...props });
 }
 export {
   Avatar,
@@ -192,6 +197,7 @@ export {
   CardDescription,
   CardFooter,
   CardHeader,
+  CardPropsLayout,
   CardTitle,
   badgeVariants,
   buttonVariants

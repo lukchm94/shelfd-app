@@ -1,56 +1,59 @@
 'use client';
 
-import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
-
+import * as React from 'react';
 import { Button } from '@shelfd/ui';
-
-type Theme = 'light' | 'dark';
-
-function getPreferredTheme(): Theme {
-  if (typeof window === 'undefined') {
-    return 'light';
-  }
-
-  const storedTheme = window.localStorage.getItem('theme');
-
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    return storedTheme;
-  }
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-function applyTheme(theme: Theme): void {
-  document.documentElement.classList.toggle('dark', theme === 'dark');
-  document.documentElement.style.colorScheme = theme;
-}
+import { Sun, Moon } from 'lucide-react'; // Or any icon set you have installed
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('light');
+  // 💡 Prevent hydration mismatch flickering by waiting for the mount state
+  const [mounted, setMounted] = React.useState(false);
+  const [isDark, setIsDark] = React.useState(false);
 
-  useEffect(() => {
-    const preferredTheme = getPreferredTheme();
-    setTheme(preferredTheme);
-    applyTheme(preferredTheme);
+  React.useEffect(() => {
+    setMounted(true);
+    // Read the current state set by your layout's raw script block
+    const isCurrentlyDark = document.documentElement.classList.contains('dark');
+    setIsDark(isCurrentlyDark);
   }, []);
 
-  function toggleTheme(): void {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    window.localStorage.setItem('theme', nextTheme);
-    setTheme(nextTheme);
-    applyTheme(nextTheme);
+  const toggleTheme = () => {
+    const nextTheme = !isDark;
+    setIsDark(nextTheme);
+
+    // 💡 Update both the HTML class list and localStorage synchronously
+    if (nextTheme) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
+  // Render a visual skeleton placeholder button during hydration to avoid page shifting
+  if (!mounted) {
+    return (
+      <Button variant="ghost" size="icon" className="rounded-full size-8 opacity-0">
+        <Sun className="size-4" />
+      </Button>
+    );
   }
 
   return (
     <Button
-      type="button"
-      variant="ghost"
-      size="icon-sm"
-      aria-label="Toggle dark mode"
       onClick={toggleTheme}
+      variant="ghost"
+      size="icon"
+      className="rounded-full size-8 text-muted-foreground hover:text-foreground transition-colors min-w-8 text-center"
+      aria-label="Toggle theme"
     >
-      {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {isDark ? (
+        <Sun className="size-4 text-amber-500 transition-transform scale-100 rotate-0" />
+      ) : (
+        <Moon className="size-4 text-zinc-700 transition-transform scale-100 rotate-0" />
+      )}
     </Button>
   );
 }
