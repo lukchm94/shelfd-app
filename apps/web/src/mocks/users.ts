@@ -14,9 +14,9 @@ export const users = [
     bio: 'Enthusiast of rare collectibles and memorabilia.',
   },
   {
-    username: 'janedoe',
+    username: 'janedoe2',
     id: 'u3',
-    name: 'Jane Doe',
+    name: 'Jane Doe James',
     avatar: 'https://i.pravatar.cc/102',
     bio: 'Passionate about collecting unique figures and cards.',
   },

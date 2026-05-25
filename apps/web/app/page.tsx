@@ -17,7 +17,7 @@ export default function Home() {
       <section className="grid gap-10  md:grid-cols-[1.15fr_0.85fr] md:items-end">
         <div className="space-y-6">
           <Badge
-            className="bg-muted text-muted-foreground p-2 gap-2 border-zinc-800 shadow-md rounded-full w-fit"
+            className="bg-muted text-muted-foreground p-8 gap-2 border-zinc-800 shadow-md rounded-full w-fit"
             variant="outline"
           >
             Collector Library

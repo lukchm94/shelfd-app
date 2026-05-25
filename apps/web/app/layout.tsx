@@ -31,11 +31,11 @@ export default function RootLayout({ children }: { children: ReactNode }): JSX.E
           `}
         </Script>
         <header className="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-xl">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
             <Link href="/" className="text-lg font-semibold tracking-tight text-foreground">
               shelfd
             </Link>
-            <div className="flex items-center gap-2 rounded-full  border-border/70 bg-card px-2 py-1.5 shadow-sm">
+            <div className="flex items-center gap-2 rounded-full  border-border/70 bg-card px-2 py-2 shadow-sm">
               <Button
                 asChild
                 className="border-zinc-800 shadow-md rounded-full w-fit p-2"
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }): JSX.E
                 variant="ghost"
                 size="sm"
               >
-                <Link href="/collection/sample">Collection</Link>
+                <Link href="/collection">Collection</Link>
               </Button>
               <ThemeToggle />
             </div>

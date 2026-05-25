@@ -16,8 +16,17 @@ type Props = { params: { user: string } };
 
 export default async function ProfilePage({ params }: Props): Promise<React.JSX.Element> {
   const p = await params;
+
+  console.log('Received params:', p.user); // Debug log to verify params
+  console.log('Available users:', users); // Debug log to verify users data
   const user = users.find((u) => u.username === p.user) || users[0];
+
+  console.log('Found user:', user); // Debug log to verify user lookup
+
   const userCollections = collections.filter((c) => c.owner === user.username);
+
+  console.log('User collections:', userCollections); // Debug log to verify collections lookup
+
   const initials = user.name
     .split(' ')
     .map((part) => part[0])
@@ -26,7 +35,7 @@ export default async function ProfilePage({ params }: Props): Promise<React.JSX.
     .toUpperCase();
 
   return (
-    <div className="mx-auto max-w-5xl px-2 py-12 space-y-16">
+    <div className="mx-auto max-w-5xl px-2 py-8 space-y-8">
       {/* --- USER PROFILE SECTION --- */}
       <Card
         layout={CardPropsLayout.VERTICAL}

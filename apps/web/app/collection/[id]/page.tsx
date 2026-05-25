@@ -38,6 +38,13 @@ export default async function CollectionPage({ params }: Props): Promise<React.J
       <section className="grid grid-cols-1 gap-6 min-[440px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {collectionItems.map((it) => (
           <Card key={it.id} className="overflow-hidden py-0">
+            <CardHeader className="px-6 pt-6">
+              <div className="flex items-start justify-between gap-3">
+                <CardTitle className="text-sm">{it.name}</CardTitle>
+                <BadgeCheck className="h-4 w-4 shrink-0 text-emerald-700" />
+              </div>
+              <p>Wowed: {it.wowed}</p>
+            </CardHeader>
             <CardContent className="px-0">
               <div className="flex aspect-[4/3] items-center justify-center bg-muted">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full border border-background/80 bg-background/70 text-lg font-semibold text-foreground shadow-sm backdrop-blur">
@@ -45,20 +52,7 @@ export default async function CollectionPage({ params }: Props): Promise<React.J
                 </div>
               </div>
             </CardContent>
-            <CardHeader className="px-6 pt-6">
-              <div className="flex items-start justify-between gap-3">
-                <CardTitle className="text-sm">{it.name}</CardTitle>
-                <BadgeCheck className="h-4 w-4 shrink-0 text-emerald-700" />
-              </div>
-            </CardHeader>
-            <CardFooter className="px-6 pb-6">
-              <Badge
-                variant="secondary"
-                className="uppercase tracking-[0.14em] py-1 px-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium"
-              >
-                {it.metadata}
-              </Badge>
-            </CardFooter>
+            <CardFooter className="px-6 pb-6">{it.metadata}</CardFooter>
           </Card>
         ))}
       </section>

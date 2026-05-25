@@ -2,17 +2,16 @@
 
 import * as React from 'react';
 import { Button } from '@shelfd/ui';
-import { Sun, Moon } from 'lucide-react'; // Or any icon set you have installed
+import { Sun, Moon } from 'lucide-react';
+import { DisplayMode } from './constants/displayMode';
 
 export function ThemeToggle() {
-  // 💡 Prevent hydration mismatch flickering by waiting for the mount state
   const [mounted, setMounted] = React.useState(false);
   const [isDark, setIsDark] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
-    // Read the current state set by your layout's raw script block
-    const isCurrentlyDark = document.documentElement.classList.contains('dark');
+    const isCurrentlyDark = document.documentElement.classList.contains(DisplayMode.DARK);
     setIsDark(isCurrentlyDark);
   }, []);
 
@@ -20,23 +19,27 @@ export function ThemeToggle() {
     const nextTheme = !isDark;
     setIsDark(nextTheme);
 
-    // 💡 Update both the HTML class list and localStorage synchronously
     if (nextTheme) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add(DisplayMode.DARK);
+      document.documentElement.style.colorScheme = DisplayMode.DARK;
+      localStorage.setItem('theme', DisplayMode.DARK);
     } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.colorScheme = 'light';
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove(DisplayMode.DARK);
+      document.documentElement.style.colorScheme = DisplayMode.LIGHT;
+      localStorage.setItem('theme', DisplayMode.LIGHT);
     }
   };
 
   // Render a visual skeleton placeholder button during hydration to avoid page shifting
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="rounded-full size-8 opacity-0">
-        <Sun className="size-4" />
+      <Button
+        variant="ghost"
+        size="icon"
+        className="inline-flex items-center justify-center rounded-full size-9 p-0 text-muted-foreground hover:text-foreground transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        aria-label="Toggle theme"
+      >
+        <Sun className="size-6" />
       </Button>
     );
   }
