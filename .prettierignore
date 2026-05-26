@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+packages/*/lib
+**/node_modules
+*.log
+coverage
+.turbo
+.next
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

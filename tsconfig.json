@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
+    "typeRoots": ["./node_modules/@types"],
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["apps/web/src/*"]
+    },
+    "types": ["node", "react"]
+  },
+  "include": [
+    "apps/**/*",
+    "packages/**/*"
+  ]
+}
