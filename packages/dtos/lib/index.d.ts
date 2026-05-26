@@ -10,7 +10,6 @@ declare const ShelfDTOSchema: z.ZodObject<{
     wowsCount: z.ZodOptional<z.ZodNumber>;
 }, z.core.$strip>;
 type ShelfDTO = z.infer<typeof ShelfDTOSchema>;
-
 interface ShelfFeedPropsDTO {
     initialShelves: ShelfDTO[];
     initialNextPage: number | null;
