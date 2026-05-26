@@ -52,9 +52,9 @@ var badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground",
+        default: "border-transparent bg-primary text-primary-foreground rounded-md",
         secondary: "border-transparent bg-secondary text-secondary-foreground bg-opacity-50 dark:bg-opacity-30 rounded-md",
-        outline: "border-zinc-800 bg-zinc-950 text-zinc-400"
+        outline: "border-zinc-800 bg-zinc-950 text-zinc-400 rounded-md"
       }
     },
     defaultVariants: {

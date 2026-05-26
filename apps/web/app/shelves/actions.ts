@@ -1,15 +1,14 @@
-// apps/web/app/collection/actions.ts
 'use server';
 
 import { collections } from '../../src/mocks/collections';
-import type { CollectionDTO } from '../../src/types/collection.dto';
+import type { ShelfDTO } from '@shelfd/dtos';
 
 interface PaginatedResponse {
-  data: CollectionDTO[];
+  data: ShelfDTO[];
   nextPage: number | null;
 }
 
-export async function fetchCollectionsPaginated(
+export async function fetchShelvesPaginated(
   page: number,
   limit: number = 5,
 ): Promise<PaginatedResponse> {
@@ -19,11 +18,13 @@ export async function fetchCollectionsPaginated(
   const rawData = collections.slice(startIndex, endIndex);
 
   // 💡 Transform internal entities strictly into the DTO contract mapping
-  const sanitizedData: CollectionDTO[] = rawData.map((item) => ({
+  const sanitizedData: ShelfDTO[] = rawData.map((item) => ({
     id: item.id,
     title: item.title,
     description: item.description,
-    // Add computed parameters here seamlessly if required down the road
+    tags: item.tags || [], // Ensure tags is always an array, even if missing in the source
+    backgroundImageUrl: item.backgroundImageUrl || undefined, // Ensure backgroundImageUrl is optional
+    wowsCount: item.wowsCount || 0, // Default to 0 if wowsCount is missing
   }));
 
   return {

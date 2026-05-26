@@ -6,6 +6,7 @@ export const items = [
     metadata: '1979 • PSA 8',
     year: 1979,
     wowed: 12,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'i2',
@@ -14,6 +15,7 @@ export const items = [
     metadata: '1985 • Unrated',
     year: 1985,
     wowed: 8,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'i3',
@@ -22,8 +24,17 @@ export const items = [
     metadata: 'Limited Edition',
     year: null,
     wowed: 5,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
-  { id: 'i4', collectionId: 'c2', name: 'Figure Y', metadata: 'Prototype', year: null, wowed: 3 },
+  {
+    id: 'i4',
+    collectionId: 'c2',
+    name: 'Figure Y',
+    metadata: 'Prototype',
+    year: null,
+    wowed: 3,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+  },
   {
     id: 'i5',
     collectionId: 'c2',
@@ -31,6 +42,7 @@ export const items = [
     metadata: 'Limited Edition',
     year: null,
     wowed: 7,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'i6',
@@ -39,6 +51,7 @@ export const items = [
     metadata: 'Prototype YA',
     year: null,
     wowed: 4,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'i7',
@@ -47,6 +60,7 @@ export const items = [
     metadata: 'Limited Edition XB',
     year: null,
     wowed: 6,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'i8',
@@ -55,5 +69,33 @@ export const items = [
     metadata: 'Prototype YC',
     year: null,
     wowed: 2,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'i9',
+    collectionId: 'c3',
+    name: 'Figure ZC',
+    metadata: 'Limited Edition ZC',
+    year: null,
+    wowed: 9,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'i10',
+    collectionId: 'c4',
+    name: 'Figure ZD',
+    metadata: 'Prototype ZD',
+    year: null,
+    wowed: 1,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'i11',
+    collectionId: 'c5',
+    name: 'Figure ZE',
+    metadata: 'Limited Edition ZE',
+    year: null,
+    wowed: 5,
+    url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
 ];

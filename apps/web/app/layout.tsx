@@ -1,11 +1,10 @@
+// apps/web/app/layout.tsx
 import '../styles/globals.css';
-import Link from 'next/link';
 import Script from 'next/script';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { JSX, ReactNode } from 'react';
-import { Button } from '@shelfd/ui';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { Header } from '@/components/header'; // 💡 Import our smart header
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -30,33 +29,11 @@ export default function RootLayout({ children }: { children: ReactNode }): JSX.E
             } catch (_) {}
           `}
         </Script>
-        <header className="sticky top-0 z-10 border-b border-border/70 bg-background/85 backdrop-blur-xl">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-            <Link href="/" className="text-lg font-semibold tracking-tight text-foreground">
-              shelfd
-            </Link>
-            <div className="flex items-center gap-2 rounded-full  border-border/70 bg-card px-2 py-2 shadow-sm">
-              <Button
-                asChild
-                className="border-zinc-800 shadow-md rounded-full w-fit p-2"
-                variant="ghost"
-                size="sm"
-              >
-                <Link href="/profile/sample">Profile</Link>
-              </Button>
-              <Button
-                asChild
-                className="border-zinc-800 shadow-md rounded-full w-fit p-2"
-                variant="ghost"
-                size="sm"
-              >
-                <Link href="/collection">Collection</Link>
-              </Button>
-              <ThemeToggle />
-            </div>
-          </nav>
-        </header>
-        <main className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
+
+        {/* Render our client-safe header menu component */}
+        <Header />
+
+        <main className="mx-auto w-full max-w-6xl px-0 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
           {children}
         </main>
       </body>
