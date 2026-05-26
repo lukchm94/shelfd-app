@@ -2,7 +2,7 @@
 import '../styles/globals.css';
 import Script from 'next/script';
 import { Geist } from 'next/font/google';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/cn';
 import { JSX, ReactNode } from 'react';
 import { Header } from '@/components/header'; // 💡 Import our smart header
 
